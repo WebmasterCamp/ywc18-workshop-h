@@ -29,7 +29,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">ตอบกลับ</span>],
     author: 'หฤทัย ใจใหญ่',
-    avatar: '/mock/mock-.png',
+    avatar: '/mock/mock-3.png',
     content: <p>ร้านนี้ดีมากครับ ไปกับแม่ประจำ บริการดี</p>,
     datetime: (
       <Tooltip

@@ -14,6 +14,7 @@ export const data = [
     distance: 7.3,
     price: 'high',
     filter: 1,
+    categoryNo: 1,
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const data = [
     distance: 10.4,
     price: 'med',
     filter: 2,
+    categoryNo: 2,
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ export const data = [
     distance: 5.8,
     price: 'high',
     filter: 3,
+    categoryNo: 3,
   },
   {
     id: 4,
@@ -62,6 +65,7 @@ export const data = [
     distance: 3.0,
     price: 'low',
     filter: 4,
+    categoryNo: 4,
   },
   {
     id: 5,
@@ -78,6 +82,7 @@ export const data = [
     distance: 6.5,
     price: 'low',
     filter: 1,
+    categoryNo: 5,
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ export const data = [
     distance: 40.0,
     price: 'high',
     filter: 2,
+    categoryNo: 2,
   },
   {
     id: 7,
@@ -110,6 +116,7 @@ export const data = [
     distance: 25.7,
     price: 'med',
     filter: 3,
+    categoryNo: 3,
   },
   {
     id: 8,
@@ -126,6 +133,7 @@ export const data = [
     distance: 17.3,
     price: 'high',
     filter: 4,
+    categoryNo: 5,
   },
   {
     id: 9,
@@ -142,6 +150,7 @@ export const data = [
     distance: 12.6,
     price: 'med',
     filter: 1,
+    categoryNo: 1,
   },
   {
     id: 10,
@@ -158,5 +167,6 @@ export const data = [
     distance: 39.0,
     price: 'med',
     filter: 2,
+    categoryNo: 5,
   },
 ];

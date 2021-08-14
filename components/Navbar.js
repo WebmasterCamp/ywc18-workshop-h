@@ -105,14 +105,14 @@ function Navbar() {
         <img
           src="/logo.png"
           alt="HOSPIN"
-          style={{ width: 110, cursor:"pointer" }}
+          style={{ width: 110, cursor: 'pointer' }}
           onClick={linkToHome}
         />
         <Col>
           {isLogin ? (
-            <Button onClick={onLogout}>Logout</Button>
+            <Button onClick={onLogout}>ล็อกเอาต์</Button>
           ) : (
-            <Button onClick={() => setVisible(true)}>Login</Button>
+            <Button onClick={() => setVisible(true)}>ล็อกอิน</Button>
           )}
           {username}
         </Col>
