@@ -99,8 +99,7 @@ export default function DetailPage() {
               ประเภท: {placeData.category}
             </div>
             <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
-              เรทติ้ง:{' '}
-              <Rate disabled allowHalf defaultValue={placeData.rating} />
+              คะแนน: <Rate disabled allowHalf defaultValue={placeData.rating} />
             </div>
             <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
               ที่ตั้ง: {placeData.location}

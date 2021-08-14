@@ -101,7 +101,17 @@ export default function ResultPage() {
             <Card
               style={{ width: '100%', margin: '16px 0' }}
               key={i}
-              cover={<img alt="cover" src={item.cover} />}
+              cover={
+                <img
+                  alt="cover"
+                  src={item.cover}
+                  width="382px"
+                  height="250px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+              }
               actions={[
                 <Button
                   type="primary"
@@ -127,7 +137,7 @@ export default function ResultPage() {
                       ประเภท: {item.category}
                     </div>
                     <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
-                      เรทติ้ง:{' '}
+                      คะแนน:{' '}
                       <Rate disabled allowHalf defaultValue={item.rating} />
                     </div>
                     <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>

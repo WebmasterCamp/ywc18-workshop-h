@@ -6,11 +6,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
+      <div style={{ height : "64px"}} />
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: '#e8f8f7',
+          backgroundColor: '#fff',
         }}
       >
         <div style={{ width: 414, padding: 16 }}>

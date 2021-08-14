@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import {
@@ -100,6 +101,9 @@ function Navbar() {
           padding: '16px 20px',
           backgroundColor: '#fff',
           boxShadow: 'rgb(0 0 0 / 15%) 0px 0px 10px',
+          position: 'fixed',
+          width: '100%',
+          zIndex: '9999',
         }}
       >
         <img
@@ -111,13 +115,15 @@ function Navbar() {
         <Col>
           {isLogin ? (
             <>
-              <span>{username}</span>
+              <Link href="/history">
+                <a style={{ color: '#32C5B2' }}>สมพิณ จึงเลิศศิริ</a>
+              </Link>
               <Button onClick={onLogout} style={{ marginLeft: '30px' }}>
-                ล็อกเอาต์
+                ออกจากระบบ
               </Button>
             </>
           ) : (
-            <Button onClick={() => setVisible(true)}>ล็อกอิน</Button>
+            <Button onClick={() => setVisible(true)}>เข้าสู่ระบบ</Button>
           )}
         </Col>
       </Row>

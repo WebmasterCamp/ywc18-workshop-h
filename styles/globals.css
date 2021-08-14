@@ -15,6 +15,20 @@ a {
   border-color: rgb(23, 173, 156) !important;
 }
 
+.ant-radio-group-solid {
+  background: #17bdaa !important;
+  border-color: rgb(23, 173, 156) !important;
+}
+
+.ant-typography {
+  color: #2d3436 !important;
+}
+
+.ant-radio-group-solid {
+  background: #17bdaa !important;
+  border-color: rgb(23, 173, 156) !important;
+}
+
 * {
   box-sizing: border-box;
 }
