@@ -127,7 +127,8 @@ export default function ResultPage() {
                       ประเภท: {item.category}
                     </div>
                     <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
-                      เรทติ้ง: <Rate allowHalf defaultValue={item.rating} />
+                      เรทติ้ง:{' '}
+                      <Rate disabled allowHalf defaultValue={item.rating} />
                     </div>
                     <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
                       ที่ตั้ง: {item.location}

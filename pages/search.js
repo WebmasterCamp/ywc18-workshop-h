@@ -94,31 +94,37 @@ export default function SearchPage() {
             </Radio.Group>
           </Row>
         </Col>
-        {filteredData.map((item, i) => (
-          <Card
-            style={{ width: 300, margin: '16px 0' }}
-            key={i}
-            cover={<img alt="example" src={item.cover} />}
-            actions={[
-              <Button
-                type="primary"
-                key={1}
-                style={{ width: 120 }}
-                onClick={() => {
-                  router.push(`/detail/${item.id}`);
-                }}
+        {filteredData.length === 0 ? (
+          <>ไม่พบผลการค้นหา</>
+        ) : (
+          <>
+            {filteredData.map((item, i) => (
+              <Card
+                style={{ width: 300, margin: '16px 0' }}
+                key={i}
+                cover={<img alt="example" src={item.cover} />}
+                actions={[
+                  <Button
+                    type="primary"
+                    key={1}
+                    style={{ width: 120 }}
+                    onClick={() => {
+                      router.push(`/detail/${item.id}`);
+                    }}
+                  >
+                    จองเลย
+                  </Button>,
+                ]}
               >
-                จองเลย
-              </Button>,
-            ]}
-          >
-            <Meta
-              avatar={<Avatar src={item.avatar} />}
-              title={item.title}
-              description={item.location}
-            />
-          </Card>
-        ))}
+                <Meta
+                  avatar={<Avatar src={item.avatar} />}
+                  title={item.title}
+                  description={item.location}
+                />
+              </Card>
+            ))}
+          </>
+        )}
       </Row>
     </div>
   );

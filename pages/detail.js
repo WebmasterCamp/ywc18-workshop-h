@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Router from 'next/router';
 import {
   Card,
@@ -12,9 +11,9 @@ import {
   Modal,
   Rate,
 } from 'antd';
-import CommentList from '../../components/CommentList.js';
-import { data } from '../../shared/data';
-import { addQueue } from '../../utils/localStorage';
+import CommentList from '../components/CommentList.js';
+import { data } from '../shared/data';
+import { addQueue } from '../utils/localStorage';
 import moment from 'moment';
 import styled from 'styled-components';
 
@@ -38,14 +37,6 @@ export default function DetailPage() {
   const [dateRange, setDateRange] = useState('0');
   const [placeData, setData] = useState(data[0]);
   const [visible, setVisible] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const x = router?.query?.id;
-    if (x !== undefined) {
-      setData(data[x]);
-    }
-  }, [router]);
 
   const onBook = () => {
     addQueue({
@@ -55,7 +46,7 @@ export default function DetailPage() {
     });
     setTimeout(() => {
       setVisible(true);
-    }, 1000);
+    }, 3000);
   };
   return (
     <>
@@ -67,8 +58,7 @@ export default function DetailPage() {
           Router.push('/history');
         }}
       >
-        <img width="100%" src="/check.png"></img>
-        <p>จะไปที่หน้าประวัติการจองคิวหรือไม่</p>
+        จะไปที่หน้าประวัติการจองคิวหรือไม่
       </Modal>
       <Card>
         <div
@@ -99,8 +89,7 @@ export default function DetailPage() {
               ประเภท: {placeData.category}
             </div>
             <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
-              เรทติ้ง:{' '}
-              <Rate disabled allowHalf defaultValue={placeData.rating} />
+              เรทติ้ง: <Rate disabled allowHalf defaultValue={placeData.rating} />
             </div>
             <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
               ที่ตั้ง: {placeData.location}
