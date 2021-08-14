@@ -31,35 +31,32 @@ const HeaderContainer = styled.div`
 const DetailContainer = styled.div`
   display: inline-block;
 `;
-const timeList = ["9:00 - 10:00","10:00 - 11:00",11:00 - 12:00</Option>
-        <Option value="4" disabled>
-          12:00 - 13:00
-        </Option>
-        <Option value="5">13:00 - 14:00</Option>
-        <Option value="6">14:00 - 15:00</Option>
-        <Option value="7">16:00 - 17:00</Option>
+const timeList = [
+  '9:00 - 10:00',
+  '10:00 - 11:00',
+  '11:00 - 12:00',
+  '12:00 - 13:00',
+  '13:00 - 14:00',
+  '14:00 - 15:00',
+  '16:00 - 17:00',
+];
 
 export default function DetailPage() {
   const [date, setDate] = useState(moment(new Date()));
   const [dateRange, setDateRange] = useState('0');
   const [placeData, setData] = useState(data[0]);
   const [visible, setVisible] = useState(false);
+  const [confirmVidible, setConfirmVisible] = useState(false);
 
   const onBook = () => {
-    confirm({
-      icon: 'ice',
-      content: <>จองวันที่ {date.format('DD/MM/YY')} เวลา</>,
-      onOk() {
-        addQueue({
-          date,
-          dateRange,
-          placeData,
-        });
-        setTimeout(() => {
-          setVisible(true);
-        }, 3000);
-      },
+    addQueue({
+      date,
+      dateRange,
+      placeData,
     });
+    setTimeout(() => {
+      setVisible(true);
+    }, 3000);
   };
   return (
     <>
@@ -70,6 +67,8 @@ export default function DetailPage() {
         onOk={() => {
           Router.push('/history');
         }}
+        okText="ตกลง"
+        cancelText="ยกเลิก"
       >
         จะไปที่หน้าประวัติการจองคิวหรือไม่
       </Modal>

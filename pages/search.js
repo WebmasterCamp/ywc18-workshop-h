@@ -38,12 +38,6 @@ export default function SearchPage() {
     setfilteredData(data.filter((item) => item.filter === e.target.value));
   };
 
-  const handleChange = (value) => {
-    setSelectValue(value);
-    console.log('value', value);
-    setfilteredData(data.filter((item) => item.categoryNo === value));
-  };
-
   return (
     <div>
       <Head>
@@ -69,14 +63,18 @@ export default function SearchPage() {
           </Title>
           <Select
             style={{ width: '100%' }}
-            onChange={handleChange}
-            defaultValue={selectValue}
+            onChange={(e) => {
+              console.log(e);
+              // setSelectValue(e);
+              // setfilteredData(data.filter((item) => item.categoryNo === e));
+            }}
+            // defaultValue={{ value: 1 }}
           >
-            <Option value={1}>ฝังเข็ม</Option>
-            <Option value={2}>การแพทย์แผนโบราณของจีน</Option>
-            <Option value={3}>การจัดกระดูก</Option>
-            <Option value={4}>การใช้สมาธิบำบัด</Option>
-            <Option value={5}>อื่น ๆ</Option>
+            <Option value="1">ฝังเข็ม</Option>
+            <Option value="2">การแพทย์แผนโบราณของจีน</Option>
+            <Option value="3">การจัดกระดูก</Option>
+            <Option value="4">การใช้สมาธิบำบัด</Option>
+            <Option value="5">อื่น ๆ</Option>
           </Select>
         </Col>
         <Col span={24} style={{ margin: '16px 0' }}>

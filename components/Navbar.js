@@ -99,7 +99,8 @@ function Navbar() {
         align="center"
         style={{
           padding: '16px 20px',
-          backgroundColor: '#fff',
+          backgroundColor: 'rgba(255, 255, 255, 0.65)',
+          backdropFilter: 'saturate(180%) blur(20px)',
           boxShadow: 'rgb(0 0 0 / 15%) 0px 0px 10px',
           position: 'fixed',
           width: '100%',
