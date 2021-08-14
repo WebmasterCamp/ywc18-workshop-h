@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import {
   Modal,
   Button,
@@ -15,8 +16,6 @@ import {
   setLocalUserProfile,
   clearLocalUserProfile,
 } from '../utils/localStorage';
-
-const { Title } = Typography;
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
@@ -43,6 +42,11 @@ function Navbar() {
     setUsername(value.username);
     setVisible(false);
     setIsLogin(true);
+  };
+
+  const router = useRouter();
+  const linkToHome = () => {
+    router.push('/');
   };
 
   return (
@@ -98,7 +102,12 @@ function Navbar() {
           boxShadow: 'rgb(0 0 0 / 15%) 0px 0px 10px',
         }}
       >
-        <img src="/logo.png" alt="HOSPIN" style={{ width: 110 }} />
+        <img
+          src="/logo.png"
+          alt="HOSPIN"
+          style={{ width: 110 }}
+          onClick={linkToHome}
+        />
         <Col>
           {isLogin ? (
             <Button onClick={onLogout}>Logout</Button>

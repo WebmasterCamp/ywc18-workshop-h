@@ -1,10 +1,11 @@
-import { Carousel, Row, Col, Typography, Card, Search } from 'antd';
-import { useRouter } from 'next/router';
+import { Row, Col, Typography, Card, Input } from 'antd';
 import useSearchInputState from '../hooks/useSearchInputState';
+import { useRouter } from 'next/router';
 import { blog } from '../shared/blog';
 
 const { Meta } = Card;
 const { Title } = Typography;
+const { Search } = Input;
 
 const contentStyle = {
   height: '160px',
@@ -15,20 +16,27 @@ const contentStyle = {
 };
 
 export default function Home() {
+  const router = useRouter();
+
   const [searchValue, setSearchValue] = useSearchInputState(() => {
     router.push(`/result?q=${searchValue}`);
   });
-
-  const router = useRouter();
 
   const onSearch = (value) => setSearchValue(value);
 
   return (
     <Row justify="center" align="middle" gutter={16}>
       <Col span={24} style={{ margin: '32px 0' }}>
-        <Title level={2} align="center">
-          Hospin
-        </Title>
+        <Row justify="center" align="middle">
+          <img
+            src="/logo.png"
+            alt="HOSPIN"
+            style={{
+              width: '50%',
+              margin: '32px 0',
+            }}
+          />
+        </Row>
         <Search
           placeholder="ค้นหา..."
           allowClear
@@ -42,13 +50,18 @@ export default function Home() {
           Blog
         </Title>
         {blog.map((item, i) => (
-          <Card
-            hoverable
-            style={{ height: 100 }}
-            cover={<img alt={item.title} src={item.cover} />}
-          >
-            <Meta title={item.title} description={item.content} />
-          </Card>
+          <div style={{ margin: '32px 0' }}>
+            <Card
+              key={i}
+              hoverable
+              cover={<img alt={item.title} src={item.cover} />}
+            >
+              <Meta
+                title={item.title}
+                description={item.content.split(0, 10)}
+              />
+            </Card>
+          </div>
         ))}
       </Col>
     </Row>

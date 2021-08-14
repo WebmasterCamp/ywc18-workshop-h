@@ -51,6 +51,7 @@ export const getQueueList = () => {
 //   title: 'นายแพทย์เบล',
 //   rating: 4,
 //   location: 'บางรัก',
+//   archive
 // },
 export const addQueue = (queue) => {
   let list = getQueueList();

@@ -1,19 +1,63 @@
-import { Avatar, Image } from 'antd';
-import styled from 'styled-components';
-
-const HeaderContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: max-conetnt 1fr;
-`;
-
-const HeaderDetailContainer = styled.div``;
+import { useState, useEffect } from 'react';
+import { Avatar, Image, Tag, Typography, Card } from 'antd';
+import { getQueueList } from '../utils/localStorage';
+import Queue from '../components/Queue';
+const { Paragraph } = Typography;
 
 export default function history() {
+  const [queueList, setQueueList] = useState([]);
+
+  useEffect(() => {
+    setQueueList(getQueueList());
+  }, []);
+
   return (
     <>
-      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-      <HeaderDetailContainer>iceice </HeaderDetailContainer>
+      <div
+        style={{
+          width: '100%',
+          display: 'grid',
+          gridTemplateColumns: 'max-content 1fr',
+          padding: '20px 30px',
+          gap: '10px',
+        }}
+      >
+        <div>
+          <Avatar
+            size={50}
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+        </div>
+        <div
+          style={{
+            display: 'grid',
+          }}
+        >
+          <div>สมพิณ จึงเลิศศิริ</div>
+          <div>
+            <Tag>แก้ไขข้อมูล</Tag>
+          </div>
+        </div>
+      </div>
+      <Paragraph>บริการจองสำเร็จ</Paragraph>
+      {queueList
+        .filter((data) => !data.archive)
+        .map((data) => (
+            <>
+          <Queue queueData={data}></Queue>
+          <br/>
+          </>
+        ))}
+      <br />
+      <Paragraph>ประวัติการจอง</Paragraph>
+      {queueList
+        .filter((data) => data.archive)
+        .map((data) => (
+            <>
+          <Queue queueData={data}></Queue>
+          <br/>
+          </>
+        ))}
     </>
   );
 }
