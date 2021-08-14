@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Avatar, Image, Tag, Typography, Card } from 'antd';
+import { Avatar, Image, Tag, Typography, Card, Empty } from 'antd';
 import { getQueueList } from '../utils/localStorage';
 import Queue from '../components/Queue';
 const { Paragraph } = Typography;
@@ -33,7 +33,22 @@ export default function HistoryPage() {
   useEffect(() => {
     setQueueList([...getQueueList(), archived].reverse());
   }, []);
-
+  const success = queueList
+    .filter((data) => !data.archive)
+    .map((data) => (
+      <>
+        <Queue queueData={data}></Queue>
+        <br />
+      </>
+    ));
+  const fail = queueList
+    .filter((data) => data.archive)
+    .map((data) => (
+      <>
+        <Queue queueData={data}></Queue>
+        <br />
+      </>
+    ));
   return (
     <>
       <div
@@ -60,23 +75,13 @@ export default function HistoryPage() {
         </div>
       </div>
       <Paragraph>บริการจองสำเร็จ</Paragraph>
-      {queueList
-        .filter((data) => !data.archive)
-        .map((data) => (
-          <>
-            <Queue queueData={data}></Queue>
-            <br />
-          </>
-        ))}
+      {success.length > 0 ? (
+        success
+      ) : (
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      )}
       <Paragraph>ประวัติการจอง</Paragraph>
-      {queueList
-        .filter((data) => data.archive)
-        .map((data) => (
-          <>
-            <Queue queueData={data}></Queue>
-            <br />
-          </>
-        ))}
+      {fail.length > 0 ? fail : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
     </>
   );
 }
