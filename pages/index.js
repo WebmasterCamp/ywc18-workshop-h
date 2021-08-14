@@ -53,7 +53,7 @@ export default function IndexPage() {
         </Col>
         <Col span={24} style={{ margin: '32px 0' }}>
           <Title level={2} align="center">
-            Blog
+            บทความ
           </Title>
           {blog.map((item, i) => (
             <div style={{ margin: '32px 0' }} key={i}>

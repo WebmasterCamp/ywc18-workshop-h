@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Router from 'next/router';
 import {
   Card,
@@ -11,9 +12,9 @@ import {
   Modal,
   Rate,
 } from 'antd';
-import CommentList from '../components/CommentList.js';
-import { data } from '../shared/data';
-import { addQueue } from '../utils/localStorage';
+import CommentList from '../../components/CommentList.js';
+import { data } from '../../shared/data';
+import { addQueue } from '../../utils/localStorage';
 import moment from 'moment';
 import styled from 'styled-components';
 
@@ -37,6 +38,14 @@ export default function DetailPage() {
   const [dateRange, setDateRange] = useState('0');
   const [placeData, setData] = useState(data[0]);
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const x = router?.query?.id;
+    if (x !== undefined) {
+      setData(data[x]);
+    }
+  }, [router]);
 
   const onBook = () => {
     addQueue({
