@@ -2,7 +2,7 @@
 
 const USER_PROFILE_KEY = 'USER_PROFILE';
 
-export const loadUserProfile = () => {
+export const loadLocalUserProfile = () => {
   const profile = localStorage.getItem(USER_PROFILE_KEY);
   if (profile === null)
     return {
@@ -16,10 +16,11 @@ export const loadUserProfile = () => {
     },
   };
 };
-export const setUserProfile = (username) => {
+
+export const setLocalUserProfile = (username) => {
   localStorage.setItem(USER_PROFILE_KEY, username);
 };
 
-export const clearUserProfile = () => {
+export const clearLocalUserProfile = () => {
   localStorage.removeItem(USER_PROFILE_KEY);
 };

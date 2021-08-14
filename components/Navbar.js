@@ -1,11 +1,21 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Modal, Button, Form, Input, Checkbox } from 'antd';
 import {
-  loadUserProfile,
-  setUserProfile,
-  clearUserProfile,
+  Modal,
+  Button,
+  Form,
+  Input,
+  Checkbox,
+  Row,
+  Col,
+  Typography,
+} from 'antd';
+import {
+  loadLocalUserProfile,
+  setLocalUserProfile,
+  clearLocalUserProfile,
 } from '../utils/localStorage';
+const { Title } = Typography;
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
@@ -13,12 +23,12 @@ function Navbar() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    const { isLogin, userProfile } = loadUserProfile();
+    const { isLogin, userProfile } = loadLocalUserProfile();
     setIsLogin(isLogin);
   }, []);
 
   const onLogout = () => {
-    clearUserProfile();
+    clearLocalUserProfile();
 
     // update state
     setIsLogin(false);
@@ -26,7 +36,7 @@ function Navbar() {
   };
 
   const onFinish = (value) => {
-    setUserProfile(value.username);
+    setLocalUserProfile(value.username);
 
     // update state
     setUsername(value.username);
@@ -41,6 +51,7 @@ function Navbar() {
         title="Login"
         onCancel={() => setVisible(false)}
         footer={null}
+        centered
       >
         <Form
           name="basic"
@@ -56,7 +67,6 @@ function Navbar() {
           >
             <Input />
           </Form.Item>
-
           <Form.Item
             label="Password"
             name="password"
@@ -64,7 +74,6 @@ function Navbar() {
           >
             <Input.Password />
           </Form.Item>
-
           <Form.Item
             name="remember"
             valuePropName="checked"
@@ -72,7 +81,6 @@ function Navbar() {
           >
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               Submit
@@ -80,12 +88,27 @@ function Navbar() {
           </Form.Item>
         </Form>
       </Modal>
-      {isLogin ? (
-        <Button onClick={onLogout}>Logout</Button>
-      ) : (
-        <Button onClick={() => setVisible(true)}>Login</Button>
-      )}
-      {username}
+      <Row
+        justify="space-between"
+        align="center"
+        style={{
+          padding: '16px 20px',
+          backgroundColor: '#fff',
+          boxShadow: 'rgb(0 0 0 / 15%) 0px 0px 10px',
+        }}
+      >
+        <Title level={4} style={{ margin: 0 }}>
+          HOSPIN
+        </Title>
+        <Col>
+          {isLogin ? (
+            <Button onClick={onLogout}>Logout</Button>
+          ) : (
+            <Button onClick={() => setVisible(true)}>Login</Button>
+          )}
+          {username}
+        </Col>
+      </Row>
     </>
   );
 }

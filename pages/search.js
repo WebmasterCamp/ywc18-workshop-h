@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   Input,
   Row,
@@ -10,12 +11,8 @@ import {
   Avatar,
   Button,
 } from 'antd';
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import Image from 'next/image';
+import useSearchInputState from '../hooks/useSearchInputState';
+import { data } from '../shared/data';
 
 const { Search } = Input;
 const { Title } = Typography;
@@ -23,26 +20,25 @@ const { Meta } = Card;
 
 const { Option } = Select;
 
-const data = [
-  {
-    id: 1,
-    category: 1,
-    filter: 2,
-    cover:
-      'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    name: 'นายแพทย์นอนนะ นะนะ',
-    rating: 4,
-    location: 'บางรัก',
-  },
-];
-
 export default function search() {
-  const onSearch = (value) => console.log(value);
+  const [searchValue, setSearchValue] = useSearchInputState(() => {
+    router.push(`/result?q=${searchValue}`);
+  });
+
+  const [filteredData, setfilteredData] = useState(data);
+  const [value, setValue] = useState(1);
+  const router = useRouter();
+
+  const onSearch = (value) => setSearchValue(value);
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+    setfilteredData(data.filter((item) => item.filter === e.target.value));
+  };
 
   return (
-    <Row justify="center" align="middle" style={{ padding: 30 }} gutter={16}>
-      <Col span={24} style={{ margin: '32px 0' }}>
+    <Row justify="center" align="middle" gutter={16}>
+      <Col span={24} style={{ margin: '32px 8px' }}>
         <Title level={2} align="center">
           บริการแนะนำ
         </Title>
@@ -66,26 +62,35 @@ export default function search() {
           <Option value="5">อื่น ๆ</Option>
         </Select>
       </Col>
-      <Col span={24} style={{ margin: '32px 0' }}>
-        <Title level={3} align="center">
-          บริการแพทย์ทางเลือก
-        </Title>
+      <Col span={24} style={{ margin: '16px 0' }}>
         <Row justify="center">
-          <Radio.Group defaultValue="a" buttonStyle="solid">
-            <Radio.Button value="a">แนะนำ</Radio.Button>
-            <Radio.Button value="b">คะแนน</Radio.Button>
-            <Radio.Button value="c">ระยะทาง</Radio.Button>
-            <Radio.Button value="d">ราคาต่ำ - สูง</Radio.Button>
+          <Radio.Group
+            defaultValue="a"
+            buttonStyle="solid"
+            onChange={onChange}
+            value={value}
+          >
+            <Radio.Button value={1}>แนะนำ</Radio.Button>
+            <Radio.Button value={2}>คะแนน</Radio.Button>
+            <Radio.Button value={3}>ระยะทาง</Radio.Button>
+            <Radio.Button value={4}>ราคาต่ำ - สูง</Radio.Button>
           </Radio.Group>
         </Row>
       </Col>
-      {data.map((item, i) => (
+      {filteredData.map((item, i) => (
         <Card
-          style={{ width: 300 }}
+          style={{ width: 300, margin: '16px 0' }}
           key={i}
-          cover={<Image alt="example" src={item.cover} />}
+          cover={<img alt="example" src={item.cover} />}
           actions={[
-            <Button type="primary" key={1} style={{ width: 120 }}>
+            <Button
+              type="primary"
+              key={1}
+              style={{ width: 120 }}
+              onClick={() => {
+                router.push(`/detail/${item.id}`);
+              }}
+            >
               จองเลย
             </Button>,
           ]}
