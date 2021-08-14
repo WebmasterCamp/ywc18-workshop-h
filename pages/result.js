@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import {
   Input,
@@ -30,37 +31,43 @@ export default function ResultPage() {
   }, []);
 
   return (
-    <Row justify="center" align="middle" gutter={16}>
-      <Col span={18} style={{ margin: '32px 0' }}>
-        <Title level={3} align="center">
-          ผลลัพธ์การค้นหา
-        </Title>
-        {filteredData.map((item, i) => (
-          <Card
-            style={{ width: 300, margin: '16px 0' }}
-            key={i}
-            cover={<img alt="example" src={item.cover} />}
-            actions={[
-              <Button
-                type="primary"
-                key={1}
-                style={{ width: 120 }}
-                onClick={() => {
-                  router.push(`/detail/${item.id}`);
-                }}
-              >
-                จองเลย
-              </Button>,
-            ]}
-          >
-            <Meta
-              avatar={<Avatar src={item.avatar} />}
-              title={item.title}
-              description={item.location}
-            />
-          </Card>
-        ))}
-      </Col>
-    </Row>
+    <div>
+      <Head>
+        <title>บริการ | HOSPIN</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Row justify="center" align="middle" gutter={16}>
+        <Col span={18} style={{ margin: '32px 0' }}>
+          <Title level={3} align="center">
+            ผลลัพธ์การค้นหา
+          </Title>
+          {filteredData.map((item, i) => (
+            <Card
+              style={{ width: 300, margin: '16px 0' }}
+              key={i}
+              cover={<img alt="example" src={item.cover} />}
+              actions={[
+                <Button
+                  type="primary"
+                  key={1}
+                  style={{ width: 120 }}
+                  onClick={() => {
+                    router.push(`/detail/${item.id}`);
+                  }}
+                >
+                  จองเลย
+                </Button>,
+              ]}
+            >
+              <Meta
+                avatar={<Avatar src={item.avatar} />}
+                title={item.title}
+                description={item.location}
+              />
+            </Card>
+          ))}
+        </Col>
+      </Row>
+    </div>
   );
 }

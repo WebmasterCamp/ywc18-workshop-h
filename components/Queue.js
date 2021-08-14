@@ -1,4 +1,5 @@
 import { Card } from 'antd';
+import moment from 'moment';
 // {
 //     id: 1,
 //     category: 'บริการฝั่งเข็ม',
@@ -18,7 +19,40 @@ import { Card } from 'antd';
 export default function Queue({ queueData }) {
   return (
     <Card>
-      <div style={{ wordBreak: 'break-word' }}>{queueData.placeData.cover}</div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'max-content 1fr',
+          gap: '10px',
+        }}
+      >
+        <img
+          style={{
+            width: '100px',
+            height: '100px',
+            borderRadius: '5px',
+          }}
+          src={queueData.placeData.cover}
+        ></img>
+        <div>
+          <div style={{ wordBreak: 'break-word' }}>
+            {queueData.placeData.title}
+          </div>
+          <div style={{ wordBreak: 'break-word' }}>
+            {queueData.placeData.doctor_name}
+          </div>
+          <div style={{ wordBreak: 'break-word' }}>
+            {queueData.placeData.category}
+          </div>
+          <div style={{ wordBreak: 'break-word' }}>
+            {queueData.placeData.location}
+          </div>
+          <div style={{ wordBreak: 'break-word' }}>
+            {queueData.date}
+            {moment(new Date(queueData.date)).format()}
+          </div>
+        </div>
+      </div>
     </Card>
   );
 }
