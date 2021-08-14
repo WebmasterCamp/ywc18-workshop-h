@@ -31,6 +31,7 @@ export default function Queue({ queueData }) {
             width: '130px',
             height: '130px',
             borderRadius: '5px',
+            objectFit: "cover"
           }}
           src={queueData.placeData.cover}
         ></img>

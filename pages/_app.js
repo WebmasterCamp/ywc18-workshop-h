@@ -6,7 +6,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <div style={{ width: 414, padding: 16 }}>
           <Component {...pageProps} />
         </div>

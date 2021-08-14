@@ -9,6 +9,7 @@ import {
   Calendar,
   Select,
   Modal,
+  Rate,
 } from 'antd';
 import CommentList from '../components/CommentList.js';
 import { data } from '../shared/data';
@@ -24,24 +25,13 @@ const HeaderContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: max-content 1fr;
+  gap: 10px;
 `;
 
 const DetailContainer = styled.div`
   display: inline-block;
 `;
-// {
-//   id: 1,
-//   category: 1,
-//   filter: 2,
-//   cover:
-//     'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-//   avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-//   cert: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-//   detail: "I am ice"
-//   title: 'นายแพทย์เบล',
-//   rating: 4,
-//   location: 'บางรัก',
-// },
+
 export default function DetailPage() {
   const [date, setDate] = useState(moment(new Date()));
   const [dateRange, setDateRange] = useState('0');
@@ -71,17 +61,41 @@ export default function DetailPage() {
         จะไปที่หน้าประวัติการจองคิวหรือไม่
       </Modal>
       <Card>
-        <HeaderContainer>
+        <div
+          style={{
+            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: 'max-content 1fr',
+            gap: '10px',
+          }}
+        >
           <img
             style={{
-              width: '100px',
-              height: '100px',
+              width: '130px',
+              height: '130px',
               borderRadius: '5px',
+              objectFit: 'cover',
             }}
             src={placeData.cover}
           ></img>
-          <DetailContainer>test</DetailContainer>
-        </HeaderContainer>
+          <div>
+            <div style={{ wordBreak: 'break-word', fontSize: '12px' }}>
+              {placeData.title}
+            </div>
+            <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
+              {placeData.doctor_name}
+            </div>
+            <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
+              ประเภท: {placeData.category}
+            </div>
+            <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
+              เรทติ้ง: <Rate allowHalf defaultValue={placeData.rating} />
+            </div>
+            <div style={{ wordBreak: 'break-word', fontSize: '10px' }}>
+              ที่ตั้ง: {placeData.location}
+            </div>
+          </div>
+        </div>
       </Card>
       <br />
       <Collapse>
@@ -89,6 +103,7 @@ export default function DetailPage() {
           <img
             style={{
               borderRadius: '5px',
+              objectFit: 'cover',
             }}
             width="100%"
             src={placeData.cert}

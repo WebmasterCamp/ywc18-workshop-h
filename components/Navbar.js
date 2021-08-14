@@ -105,7 +105,7 @@ function Navbar() {
         <img
           src="/logo.png"
           alt="HOSPIN"
-          style={{ width: 110 }}
+          style={{ width: 110, cursor:"pointer" }}
           onClick={linkToHome}
         />
         <Col>
