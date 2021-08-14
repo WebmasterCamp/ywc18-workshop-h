@@ -11,7 +11,8 @@ a {
 }
 
 .ant-btn-primary {
-  background: red !important;
+  background: #17bdaa !important;
+  border-color: rgb(23, 173, 156) !important;
 }
 
 * {

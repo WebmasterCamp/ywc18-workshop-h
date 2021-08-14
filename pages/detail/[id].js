@@ -67,7 +67,8 @@ export default function DetailPage() {
           Router.push('/history');
         }}
       >
-        จะไปที่หน้าประวัติการจองคิวหรือไม่
+        <img width="100%" src="/check.png"></img>
+        <p>จะไปที่หน้าประวัติการจองคิวหรือไม่</p>
       </Modal>
       <Card>
         <div
