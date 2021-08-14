@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
         style={{
           display: 'flex',
           justifyContent: 'center',
+          backgroundColor: '#e8f8f7',
         }}
       >
         <div style={{ width: 414, padding: 16 }}>

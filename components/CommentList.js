@@ -14,7 +14,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">ตอบกลับ</span>],
     author: 'เอก อนามัย',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: '/mock/mock-5.png',
     content: (
       <p>เคยไปเมื่อ 3 ปีก่อนครับ บริการดีมากครับเดียวไว้จะมาใช้บริการอีก</p>
     ),
@@ -29,7 +29,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">ตอบกลับ</span>],
     author: 'หฤทัย ใจใหญ่',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: '/mock/mock-.png',
     content: <p>ร้านนี้ดีมากครับ ไปกับแม่ประจำ บริการดี</p>,
     datetime: (
       <Tooltip

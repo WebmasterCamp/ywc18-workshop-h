@@ -49,7 +49,7 @@ export default function SearchPage() {
             บริการแนะนำ
           </Title>
           <Search
-            placeholder="ค้นหา..."
+            placeholder="ค้นหาแพทย์ทางเลือก..."
             allowClear
             enterButton="ค้นหา"
             size="large"

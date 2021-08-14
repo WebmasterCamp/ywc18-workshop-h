@@ -31,13 +31,15 @@ export default function IndexPage() {
         <title>หน้าหลัก | HOSPIN</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Row
-        justify="center"
-        align="middle"
-        gutter={16}
-        style={{ background: 'url(/public/ui/bg.jpg)' }}
-      >
-        <Col span={24} style={{ margin: '32px 0' }}>
+      <Row justify="center" align="middle" gutter={16}>
+        <Col
+          span={24}
+          style={{
+            margin: '32px 0',
+            backgroundImage: `url("/public/ui/bg.jpg")`,
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
           <Row justify="center" align="middle">
             <img
               src="/logo.png"
@@ -49,7 +51,7 @@ export default function IndexPage() {
             />
           </Row>
           <Search
-            placeholder="ค้นหา..."
+            placeholder="ค้นหาแพทย์ทางเลือก..."
             allowClear
             enterButton="ค้นหา"
             size="large"
