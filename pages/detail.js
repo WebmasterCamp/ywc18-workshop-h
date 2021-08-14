@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Router from 'next/router';
 import {
   Card,
   Avatar,
@@ -62,10 +63,12 @@ export default function DetailPage() {
       <Modal
         visible={visible}
         onCancel={() => setVisible(false)}
-        title="สำเร็จ"
-        footer={null}
+        title="จองคิวสำเร็จ"
+        onOk={() => {
+          Router.push('/history');
+        }}
       >
-        สำเร็จ
+        จะไปที่หน้าประวัติการจองคิวหรือไม่
       </Modal>
       <Card>
         <HeaderContainer>
@@ -82,7 +85,7 @@ export default function DetailPage() {
       </Card>
       <br />
       <Collapse>
-        <Panel header="Certificate">
+        <Panel header="ใบรับรอง">
           <img
             style={{
               borderRadius: '5px',

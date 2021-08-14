@@ -82,6 +82,13 @@ export default function IndexPage() {
             </div>
           ))}
         </Col>
+        <img
+          src="/ui/footer/footer.png"
+          alt="FOOTER"
+          style={{
+            width: '100%',
+          }}
+        />
       </Row>
     </div>
   );

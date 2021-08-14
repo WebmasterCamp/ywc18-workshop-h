@@ -62,7 +62,7 @@ export const addQueue = (queue) => {
       max = i.queueId;
     }
   }
-  list = [...list, { ...queue, queueId: max + 1 }];
+  list = [...list, { ...queue, queueId: max + 1, archive: false }];
   localStorage.setItem(QUEUE_KEY, JSON.stringify(list));
 };
 
