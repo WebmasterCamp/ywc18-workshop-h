@@ -6,6 +6,8 @@ export const data = [
     cover:
       'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    cert: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+    detail: 'I am ice',
     title: 'นายแพทย์เบล',
     rating: 4,
     location: 'บางรัก',

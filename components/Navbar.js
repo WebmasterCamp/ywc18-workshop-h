@@ -15,6 +15,7 @@ import {
   setLocalUserProfile,
   clearLocalUserProfile,
 } from '../utils/localStorage';
+
 const { Title } = Typography;
 
 function Navbar() {
@@ -97,9 +98,7 @@ function Navbar() {
           boxShadow: 'rgb(0 0 0 / 15%) 0px 0px 10px',
         }}
       >
-        <Title level={4} style={{ margin: 0 }}>
-          HOSPIN
-        </Title>
+        <img src="/logo.png" alt="HOSPIN" style={{ width: 110 }} />
         <Col>
           {isLogin ? (
             <Button onClick={onLogout}>Logout</Button>
