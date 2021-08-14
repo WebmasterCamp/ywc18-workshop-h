@@ -13,6 +13,7 @@ export const data = [
     location: 'บางรัก',
     distance: 7.3,
     price: 'high',
+    filter: 1,
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export const data = [
     location: 'หลักสี่',
     distance: 10.4,
     price: 'med',
+    filter: 2,
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const data = [
     location: 'หลักสี่',
     distance: 5.8,
     price: 'high',
+    filter: 3,
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ export const data = [
     location: 'ดอนเมือง',
     distance: 3.0,
     price: 'low',
+    filter: 4,
   },
   {
     id: 5,
@@ -73,6 +77,7 @@ export const data = [
     location: 'ปากเกร็ด',
     distance: 6.5,
     price: 'low',
+    filter: 1,
   },
   {
     id: 6,
@@ -88,6 +93,7 @@ export const data = [
     location: 'หนองจอก',
     distance: 40.0,
     price: 'high',
+    filter: 2,
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ export const data = [
     location: 'ลาดพร้าว',
     distance: 25.7,
     price: 'med',
+    filter: 3,
   },
   {
     id: 8,
@@ -118,6 +125,7 @@ export const data = [
     location: 'บางขุนเทียน',
     distance: 17.3,
     price: 'high',
+    filter: 4,
   },
   {
     id: 9,
@@ -133,6 +141,7 @@ export const data = [
     location: 'บางใหญ่',
     distance: 12.6,
     price: 'med',
+    filter: 1,
   },
   {
     id: 10,
@@ -148,5 +157,6 @@ export const data = [
     location: 'บางบอน',
     distance: 39.0,
     price: 'med',
+    filter: 2,
   },
 ];
