@@ -55,7 +55,7 @@ export default function DetailPage() {
     });
     setTimeout(() => {
       setVisible(true);
-    }, 3000);
+    }, 1000);
   };
   return (
     <>

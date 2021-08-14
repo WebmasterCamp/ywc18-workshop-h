@@ -12,15 +12,11 @@ import moment from 'moment';
 
 const data = [
   {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
+    actions: [<span key="comment-list-reply-to-0">ตอบกลับ</span>],
+    author: 'เอก อนามัย',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
+      <p>เคยไปเมื่อ 3 ปีก่อนครับ บริการดีมากครับเดียวไว้จะมาใช้บริการอีก</p>
     ),
     datetime: (
       <Tooltip
@@ -31,16 +27,10 @@ const data = [
     ),
   },
   {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
+    actions: [<span key="comment-list-reply-to-0">ตอบกลับ</span>],
+    author: 'หฤทัย ใจใหญ่',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
-    ),
+    content: <p>ร้านนี้ดีมากครับ ไปกับแม่ประจำ บริการดี</p>,
     datetime: (
       <Tooltip
         title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}

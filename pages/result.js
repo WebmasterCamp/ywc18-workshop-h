@@ -11,13 +11,14 @@ import {
   Card,
   Avatar,
   Button,
+  Rate,
 } from 'antd';
 import useSearchInputState from '../hooks/useSearchInputState';
 
 import { data } from '../shared/data';
 
 const { Search } = Input;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { Meta } = Card;
 const { Option } = Select;
 
@@ -116,8 +117,23 @@ export default function ResultPage() {
             >
               <Meta
                 avatar={<Avatar src={item.avatar} />}
-                title={item.title}
-                description={item.location}
+                title={<Title level={4}>{item.title}</Title>}
+                description={
+                  <div>
+                    <div style={{ wordBreak: 'break-word', fontSize: '18px' }}>
+                      {item.doctor_name}
+                    </div>
+                    <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
+                      ประเภท: {item.category}
+                    </div>
+                    <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
+                      เรทติ้ง: <Rate allowHalf defaultValue={item.rating} />
+                    </div>
+                    <div style={{ wordBreak: 'break-word', fontSize: '14px' }}>
+                      ที่ตั้ง: {item.location}
+                    </div>
+                  </div>
+                }
               />
             </Card>
           ))}
