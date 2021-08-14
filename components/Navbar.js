@@ -110,11 +110,15 @@ function Navbar() {
         />
         <Col>
           {isLogin ? (
-            <Button onClick={onLogout}>ล็อกเอาต์</Button>
+            <>
+              <span>{username}</span>
+              <Button onClick={onLogout} style={{ marginLeft: '30px' }}>
+                ล็อกเอาต์
+              </Button>
+            </>
           ) : (
             <Button onClick={() => setVisible(true)}>ล็อกอิน</Button>
           )}
-          {username}
         </Col>
       </Row>
     </>

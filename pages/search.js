@@ -38,9 +38,10 @@ export default function SearchPage() {
     setfilteredData(data.filter((item) => item.filter === e.target.value));
   };
 
-  const onSelectChange = (e) => {
-    setSelectValue(e.target.value);
-    setfilteredData(data.filter((item) => item.categoryNo === e.target.value));
+  const handleChange = (value) => {
+    setSelectValue(value);
+    console.log('value', value);
+    setfilteredData(data.filter((item) => item.categoryNo === value));
   };
 
   return (
@@ -68,8 +69,8 @@ export default function SearchPage() {
           </Title>
           <Select
             style={{ width: '100%' }}
-            onChange={onSelectChange}
-            value={selectValue}
+            onChange={handleChange}
+            defaultValue={selectValue}
           >
             <Option value={1}>ฝังเข็ม</Option>
             <Option value={2}>การแพทย์แผนโบราณของจีน</Option>
