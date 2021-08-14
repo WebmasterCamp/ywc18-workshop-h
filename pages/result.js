@@ -26,6 +26,7 @@ export default function ResultPage() {
   const router = useRouter();
   const { q } = router.query;
   const [filteredData, setfilteredData] = useState(data);
+  const [selectValue, setSelectValue] = useState(1);
   const [searchValue, setSearchValue] = useSearchInputState(() => {
     router.push(`/result?q=${searchValue}`);
   });
@@ -45,6 +46,11 @@ export default function ResultPage() {
   const onChange = (e) => {
     setValue(e.target.value);
     setfilteredData(data.filter((item) => item.filter === e.target.value));
+  };
+
+  const handleChange = (value) => {
+    setSelectValue(value);
+    setfilteredData(data.filter((item) => item.categoryNo === value));
   };
 
   return (
@@ -70,12 +76,16 @@ export default function ResultPage() {
           <Title level={3} align="center">
             บริการแพทย์ทางเลือก
           </Title>
-          <Select defaultValue="1" style={{ width: '100%' }}>
-            <Option value="1">ฝังเข็ม</Option>
-            <Option value="2">การแพทย์แผนโบราณของจีน</Option>
-            <Option value="3">การจัดกระดูก</Option>
-            <Option value="4">การใช้สมาธิบำบัด</Option>
-            <Option value="5">อื่น ๆ</Option>
+          <Select
+            onChange={handleChange}
+            defaultValue={selectValue}
+            style={{ width: '100%' }}
+          >
+            <Option value={1}>ฝังเข็ม</Option>
+            <Option value={2}>การแพทย์แผนโบราณของจีน</Option>
+            <Option value={3}>การจัดกระดูก</Option>
+            <Option value={4}>การใช้สมาธิบำบัด</Option>
+            <Option value={5}>อื่น ๆ</Option>
           </Select>
         </Col>
         <Col span={24} style={{ margin: '16px 0' }}>
