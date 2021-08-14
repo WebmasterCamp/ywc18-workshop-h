@@ -41,7 +41,7 @@ const DetailContainer = styled.div`
 //   rating: 4,
 //   location: 'บางรัก',
 // },
-export default function detail() {
+export default function DetailPage() {
   const [date, setDate] = useState(moment(new Date()));
   const [dateRange, setDateRange] = useState('0');
   const [placeData, setData] = useState(data[0]);

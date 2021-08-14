@@ -16,7 +16,7 @@ import { data } from '../shared/data';
 const { Meta } = Card;
 const { Title } = Typography;
 
-export default function result() {
+export default function ResultPage() {
   const router = useRouter();
   const { q } = router.query;
   const [filteredData, setfilteredData] = useState(data);

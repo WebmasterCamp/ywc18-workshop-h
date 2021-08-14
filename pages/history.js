@@ -4,7 +4,7 @@ import { getQueueList } from '../utils/localStorage';
 import Queue from '../components/Queue';
 const { Paragraph } = Typography;
 
-export default function history() {
+export default function HistoryPage() {
   const [queueList, setQueueList] = useState([]);
 
   useEffect(() => {
@@ -43,19 +43,18 @@ export default function history() {
       {queueList
         .filter((data) => !data.archive)
         .map((data) => (
-            <>
-          <Queue queueData={data}></Queue>
-          <br/>
+          <>
+            <Queue queueData={data}></Queue>
+            <br />
           </>
         ))}
-      <br />
       <Paragraph>ประวัติการจอง</Paragraph>
       {queueList
         .filter((data) => data.archive)
         .map((data) => (
-            <>
-          <Queue queueData={data}></Queue>
-          <br/>
+          <>
+            <Queue queueData={data}></Queue>
+            <br />
           </>
         ))}
     </>

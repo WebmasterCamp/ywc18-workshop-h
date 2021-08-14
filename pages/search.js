@@ -20,7 +20,7 @@ const { Meta } = Card;
 
 const { Option } = Select;
 
-export default function search() {
+export default function SearchPage() {
   const [searchValue, setSearchValue] = useSearchInputState(() => {
     router.push(`/result?q=${searchValue}`);
   });

@@ -1,4 +1,4 @@
-import { Row, Col, Typography, Card, Input } from 'antd';
+import { Row, Col, Typography, Card, Input, Button } from 'antd';
 import useSearchInputState from '../hooks/useSearchInputState';
 import { useRouter } from 'next/router';
 import { blog } from '../shared/blog';
@@ -15,7 +15,7 @@ const contentStyle = {
   background: '#364d79',
 };
 
-export default function Home() {
+export default function IndexPage() {
   const router = useRouter();
 
   const [searchValue, setSearchValue] = useSearchInputState(() => {
@@ -50,11 +50,23 @@ export default function Home() {
           Blog
         </Title>
         {blog.map((item, i) => (
-          <div style={{ margin: '32px 0' }}>
+          <div style={{ margin: '32px 0' }} key={i}>
             <Card
               key={i}
               hoverable
               cover={<img alt={item.title} src={item.cover} />}
+              actions={[
+                <Button
+                  type="primary"
+                  key={1}
+                  style={{ width: 120 }}
+                  onClick={() => {
+                    router.push(`/blog/${item.id}`);
+                  }}
+                >
+                  อ่านเพิ่มเติม
+                </Button>,
+              ]}
             >
               <Meta
                 title={item.title}
